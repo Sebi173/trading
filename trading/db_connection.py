@@ -1,4 +1,6 @@
-{'adress': '127.0.0.0',
-    'hostname': 'dev',
- 'username': 'postgres'}
+import os
+from sqlalchemy import create_engine
 
+def setup_connection():
+    engine = create_engine(f'postgresql://postgres:{os.getenv("postgresp")}@{os.getenv("postgresa")}:5432/dev')
+    return engine
