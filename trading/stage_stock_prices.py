@@ -30,7 +30,7 @@ def stage_all_tickers():
     for ticker in all_tickers:
         data = get_stock_prices_one_ticker(ticker, start_date, end_date)
         data["ticker"] = ticker
-        data.index.name = 'date'
+        data.index.name = 'dat_date'
         data.columns = ['dec_open', 'dec_high', 'dec_low', 'dec_close', 'dec_adj_close', 'int_volume', 'str_ticker']
         try:
             data.to_sql('sdf_stock_prices', engine, schema = 'stg', if_exists = 'append')
